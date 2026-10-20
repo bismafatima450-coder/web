@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bisma-playground</title>
+   
+    <link rel="stylesheet" href="../css/tutorial.css">
+    
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:  "Lobster Two", sans-serif;
+}
+
+
+
+body {
+  background: #0a0a0a; /* Dark background for neon */
+  color: #eee;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #000;
+  color: white;
+  border-bottom: 2px solid #ff4dff;
+  display: flex;
+  text-decoration: none;
+}
+
+nav h2 {
+  color: #ff4dff;
+  text-shadow: 0 0 10px #ff4dff;
+}
+
+nav div a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s;
+  list-style: none;
+  text-decoration: none;
+}
+
+nav div a:hover, nav div a.active {
+  color: #00f0ff; /* Cyan neon */
+}
+
+/* Intro Section */
+.intro-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #111;
+}
+
+.heading {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: #ff4dff; /* Pink neon */
+  text-shadow: 0 0 15px #ff4dff;
+}
+
+.intro-para {
+  font-size: 1.1rem;
+  color: #aaa;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Cards Grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 50px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family:  "Lobster Two", sans-serif;
+}
+
+.card {
+  background: #111; /* Dark card */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 77, 255, 0.3); /* Neon glow */
+  border: 1px solid #333;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family:  "Lobster Two", sans-serif;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.5); /* Cyan glow on hover */
+font-family:  "Lobster Two", sans-serif;}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ff4dff;
+font-family:  "Lobster Two", sans-serif;}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #00f0ff; /* Cyan */
+font-family:  "Lobster Two", sans-serif;}
+
+.card p {
+  font-size: 0.95rem;
+  color: #bbb;
+  margin-bottom: 15px;
+font-family:  "Lobster Two", sans-serif;}
+
+/* Demo 1: Glow Button */
+.btn {
+  padding: 10px 25px;
+  background: #ff4dff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+font-family:  "Lobster Two", sans-serif;}
+
+.btn:hover {
+  box-shadow: 0 0 25px #ff4dff;
+  transform: scale(1.05);
+font-family:  "Lobster Two", sans-serif;}
+
+/* Demo 2: Spinner */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #333;
+  border-top: 5px solid #00f0ff; /* Cyan */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 10px auto;
+font-family:  "Lobster Two", sans-serif;}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+ 100% { transform: rotate(360deg); }
+}
+
+/* Demo 4: Gradient Box */
+.gradient-box {
+  padding: 15px;
+  background: linear-gradient(45deg, #ff4dff, #00f0ff);
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 0.5s;
+  cursor: pointer;
+font-family:  "Lobster Two", sans-serif;}
+
+.gradient-box:hover {
+  background: linear-gradient(45deg, #00f0ff, #ff4dff);
+  box-shadow: 0 0 20px #00f0ff;
+  transform: scale(1.05);
+}
+
+/* Demo 5: Glow Text */
+.glow-text {
+  font-size: 1.5rem;
+  color: #eee;
+  transition: 0.3s;
+  cursor: pointer;
+font-family:  "Lobster Two", sans-serif;}
+
+.glow-text:hover {
+  color: #ff4dff;
+  text-shadow: 0 0 10px #ff4dff, 0 0 20px #ff4dff;
+font-family:  "Lobster Two", sans-serif;}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #aaa;
+  border-top: 2px solid #ff4dff;
+  margin-top: 40px;
+font-family:  "Lobster Two", sans-serif;}
+
+/* Demo 6: Pulse Button */
+.pulse-btn {
+  padding: 12px 30px;
+  background: #00f0ff; /* Cyan */
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+  animation: pulse 1.5s infinite;
+font-family:  "Lobster Two", sans-serif;}
+
+.pulse-btn:hover {
+  animation: none; /* Hover  */
+  box-shadow: 0 0 30px #00f0ff, 0 0 60px #00f0ff;
+  transform: scale(1.1);
+font-family:  "Lobster Two", sans-serif;}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.7); }
+ 70% { box-shadow: 0 0 0 15px rgba(0, 240, 255, 0); }
+ 100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); }
+}
+
+/* Demo 7: Glitch Text */
+.glitch-text {
+  font-size: 2rem;
+  color: #ff4dff; /* Pink */
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+font-family:  "Lobster Two", sans-serif;}
+
+.glitch-text:hover::before,
+.glitch-text:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+font-family:  "Lobster Two", sans-serif;}
+
+.glitch-text:hover::before {
+  color: #00f0ff; /* Cyan */
+  animation: glitch-1 0.3s infinite;
+  clip-path: polygon(0 2%, 100% 0%, 100% 45%, 0 57%);
+font-family:  "Lobster Two", sans-serif;}
+
+.glitch-text:hover::after {
+  color: #ff4dff; /* Pink */
+  animation: glitch-2 0.3s infinite;
+  clip-path: polygon(0 60%, 100% 70%, 100% 100%, 0 100%);
+font-family:  "Lobster Two", sans-serif;}
+
+@keyframes glitch-1 {
+  0% { transform: translate(0); }
+ 20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+ 100% { transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translate(0); }
+ 20% { transform: translate(3px, -3px); }
+ 40% { transform: translate(3px, 3px); }
+  60% { transform: translate(-3px, -3px); }
+  80% { transform: translate(-3px, 3px); }
+  100% { transform: translate(0); }
+}
+
+
+nav div {
+  display: flex;
+  gap: 30px;
+  text-decoration: none;
+font-family:  "Lobster Two", sans-serif;}
+
+
+/*2 LINE DOTS */
+nav div li {
+  list-style: none;
+font-family:  "Lobster Two", sans-serif;}
+nav div li::marker {
+  content: "";
+font-family:  "Lobster Two", sans-serif;}
+
+
+/* NAVBAR */
+nav {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  background: #0f0f1a;
+  font-family:  "Lobster Two", sans-serif;
+}
+
+nav h2 {
+  font-size: 24px;
+  color: #00f5ff;
+font-family:  "Lobster Two", sans-serif;}
+
+nav div {
+  display: flex;
+  gap: 30px;
+font-family:  "Lobster Two", sans-serif;}
+
+nav div li {
+  list-style: none;
+font-family:  "Lobster Two", sans-serif;}
+
+nav div li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+font-family:  "Lobster Two", sans-serif;}
+
+nav div li a:hover,
+nav div li a.active {
+  color: #00f5ff;
+font-family:  "Lobster Two", sans-serif;}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+font-family:  "Lobster Two", sans-serif;}
+
+body {
+  background: #050505;
+  color: white;
+  padding-top: 70px; /* navbar space */
+}
+
+/* ===== NAVBAR FOR LEARN WITH BISMA ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.95);
+  padding: 15px 30px;
+  border-bottom: 2px solid #0ff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+font-family:  "Lobster Two", sans-serif;}
+
+.logo {
+  color: #0ff;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  font-family:  "Lobster Two", sans-serif;
+}
+
+/* Hide checkbox */
+#menu-toggle { display: none; }
+
+/* Hamburger - RIGHT CORNER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: auto;
+}
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #0ff;
+  border-radius: 3px;
+  transition: 0.4s;
+  box-shadow: 0 0 5px #0ff;
+}
+
+/* Desktop Menu - RIGHT SIDE */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin-left: auto;
+  font-family:  "Lobster Two", sans-serif;
+}
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+  font-family:  "Lobster Two", sans-serif;
+}
+.nav-menu a:hover, 
+.nav-menu a.active {
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;font-family:  "Lobster Two", sans-serif;
+}
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  
+  .nav-menu {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    flex-direction: column;
+    background: rgba(17, 17, 17, 0.98);
+    width: 70%;
+    height: 100vh;
+    text-align: left;
+    padding: 40px 30px;
+    gap: 25px;
+    transition: 0.4s ease;
+    border-left: 2px solid #0ff;
+    backdrop-filter: blur(10px);
+    font-family:  "Lobster Two", sans-serif;
+  }
+  
+  #menu-toggle:checked ~ .nav-menu { right: 0; }
+  
+  #menu-toggle:checked ~ .hamburger span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+  #menu-toggle:checked ~ .hamburger span:nth-child(2) { opacity: 0; }
+  #menu-toggle:checked ~ .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+}
+
+
+
+
+
+
+
+</style>
+<body>
+
+<!-- NAVBAR START - SAME FORMAT -->
+<nav class="navbar">
+  <div class="logo">Learn with Bisma</div>
+
+  <input type="checkbox" id="menu-toggle">
+  
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <ul class="nav-menu">
+    <li><a href="../html/index.html">Home</a></li>
+    <li><a href="../html/tutorial.html" class="active">Playground</a></li>
+    <li><a href="../html/about.html">About</a></li>
+    <li><a href="../html/gallery.html">Gallery</a></li>
+    <li><a href="../html/contacts.html">Contact</a></li>
+  </ul>
+</nav>
+<!-- NAVBAR END -->
+
+<!-- Tutorial Intro Section -->
+<section class="intro-section">
+  <h2 class="heading">CSS Playground - Live Demos</h2>
+  <p class="intro-para">
+    Welcome to the Playground! Here you will learn CSS by doing. 
+    Every demo below is 100% CSS. Just hover, click and see the magic. 
+    Copy the code and use it in your own projects.
+  </p>
+</section>
+
+<!-- Demo Cards Section -->
+<section class="cards">
+  
+  <!-- Demo 1 -->
+  <div class="card">
+    <img src="../images/play 1.jpg" alt="Glow Button">
+    <h3>Demo 1: Glow Button</h3>
+    <p>Hover over the button to see the glow effect. Pure CSS with no JavaScript.</p>
+    <button class="btn">Click Me</button>
+  </div>
+
+  <!-- Demo 2 -->
+  <div class="card">
+   <img src="../images/play.jpeg" alt="Loading Spinner">
+    <h3>Demo 2: Loading Spinner</h3>
+    <p>This smooth rotating loader is created using only CSS animations.</p>
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Demo 3 -->
+  <div class="card">
+   <img src="../images/play 3.jpeg" alt="Card Lift">
+    <h3>Demo 3: Card Lift Effect</h3>
+    <p>Move your mouse over this card. It will lift up with a smooth shadow effect.</p>
+  </div>
+
+  <!-- Demo 4 -->
+  <div class="card">
+   <img src="../images/play 4.jpeg" alt="Gradient Background">
+
+    <h3>Demo 4: Animated Gradient</h3>
+    <p>Hover to see a beautiful animated gradient background effect on this card.</p>
+    <div class="gradient-box">Hover Me</div>
+  </div>
+
+  <!-- Demo 5 -->
+  <div class="card">
+    <img src="../images/play 5.jpeg" alt="Text Shadow">
+    <h3>Demo 5: Text Shadow</h3>
+    <p>Hover over the text below to see a glowing text shadow animation.</p>
+    <h4 class="glow-text">Glow Text</h4>
+  </div>
+
+  <!-- Demo 6: Neon Pulse Button -->
+<div class="card">
+  <img src="../images/play 6.jpeg" alt="Pulse Button">
+  <h3>Demo 6: Pulse Button</h3>
+  <p>Hover over this button and watch it pulse with a neon glow</p>
+  <button class="pulse-btn">Click Me</button>
+</div>
+
+<!-- Demo 7: Glitch Text -->
+<div class="card">
+  <img src="../images/play 7.jpeg" alt="Glitch Text">
+  <h3>Demo 7: Glitch Text Effect</h3>
+  <p>Hover to see a cool cyberpunk glitch effect on the text</p>
+  <h2 class="glitch-text" data-text="GLITCH">GLITCH</h2>
+</div>
+
+</section>
+
+<footer><p>© 2026 Bisma. All Rights Reserved.</p></footer>
+
+</body>
+</html>
